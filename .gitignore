@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 media/covers/*
 !media/covers/missing.png
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
