@@ -1,1 +1,1 @@
-syah_site/requirements/production.txt
+-r requirements/base.txt
