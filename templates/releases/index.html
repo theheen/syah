@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} | Releases{% endblock title %}
+
+{% block content %}
+  <h1>Releases</h1>
+    {% for rel in release_list %}
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <a href="{{ rel.get_absolute_url }}">
+            <img src="{{ rel.cover.url }}">
+          </a>
+          <h3><a href="{{ rel.get_absolute_url }}">{{ rel.title }}</a></h3>
+          <h6>{{ rel.release_date }}</h6>
+        </div>
+      </div>
+    {% empty %}
+      <p>No releases to display.</p>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} | {{ release.title }}{% endblock title %}
+
+{% block content %}
+  <h1>{{ release.title }}</h1>
+  <!-- <img class="cover img-responsive" src="{{ release.cover.url }}" alt="cover"> -->
+  <img class="cover center-block" src="{{ release.cover.url }}" alt="cover">
+  {% if release.tagline %}
+    <p><em>{{ release.tagline }} </em></p>
+  {% endif %}
+  <ol class="tracklist">
+    {% for track in release.track_set.all %}
+      <li>{{ track.title }} - {{ track.length }}</li>
+    {% endfor %}
+  </ol>
+  {% if release.link_set %}
+    <ul class="list-inline">
+      {% for link in release.link_set.all %}
+        <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if release.info %}
+    <p>{{ release.info | urlizetrunc:20 | linebreaks }}</p>
+  {% endif %}
+  <p>Released {{ release.release_date }}.</p>
+{% endblock content %}

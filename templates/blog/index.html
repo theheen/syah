@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ block.super }} | Blog{% endblock title %}
+
+{% block content %}
+  <h1>Blog</h1>
+  <ul class="list-unstyled">
+  {% for post in blog_list %}
+    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> - <small>{{ post.pub_datetime | date:"Y-m-d"}}</small></li>
+  {% endfor %}
+  </ul>
+{% endblock content %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ block.super }} | {{ event }}{% endblock title %}
+
+{% block content %}
+  <h1>{{ event.date }}<small> - <a href="{{ event.venue.url }}">{{ event.venue }}</a></small></h1>
+  {{ event.info | linebreaks | urlizetrunc:20 }}
+
+{% endblock content %}

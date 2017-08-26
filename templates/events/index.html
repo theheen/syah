@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{block.super }} | Events {% endblock title %}
+
+{% block content %}
+  <h1>Events</h1>
+  <table class="event-table table">
+    <tr>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Location</th>
+      <th>Info</th>
+      <th>Tickets</th>
+    </tr>
+    {% for event in event_list %}
+      <tr>
+        <td>{{ event.date }}</td>
+        {% if event.venue.url %}
+          <td><a href="{{ event.venue.url }}">{{ event.venue.name }}</a></td>
+        {% else %}
+          <td>{{ event.venue.name }}</td>
+        {% endif %}
+        <td>{{ event.venue.location }}</td>
+        {% if event.info %}
+        <td><a href="#info-toggle-{{ event.id }}" data-toggle="collapse" aria-expanded="false" aria-controls="info-toggle-{{ event.id }}">Info</a></td>
+        {% else %}
+          <td>-</td>
+        {% endif %}
+        {% if event.ticket_url %}
+          <td><a href="{{ event.ticket_url }}">Tickets</a></td>
+        {% else %}
+          <td>Tickets not available.</td>
+        {% endif %}
+      </tr>
+      <tr class="info-collapse collapse" id="info-toggle-{{ event.id }}">
+        <!-- <div class="info collapse" id="info-toggle"> -->
+          <!-- <div class="well"> -->
+          <td colspan=5 class="well">{{ event.info | linebreaks | urlizetrunc:15 }}</td>
+          <!-- </div> -->
+        <!-- </div> -->
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock content %}
