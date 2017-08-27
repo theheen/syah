@@ -9,7 +9,7 @@ X_FRAME_OPTIONS = 'DENY'
 CSRF_COOKIE_SECURE = False
 USE_X_FORWARDED_HOST = True
 
-ALLOWED_HOSTS = ['syah-dev.eu-west-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['syah-dev.eu-west-1.elasticbeanstalk.com', 'localhost']
 
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
