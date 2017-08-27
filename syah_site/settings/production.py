@@ -8,6 +8,8 @@ X_FRAME_OPTIONS = 'DENY'
 CSRF_COOKIE_SECURE = True
 USE_X_FORWARDED_HOST = True
 
+ALLOWED_HOSTS = ['.elasticbeanstalk.com']
+
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
         'default': {
