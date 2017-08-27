@@ -23,5 +23,5 @@ if 'RDS_DB_NAME' in os.environ:
         }
     }
 
-STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "www", "static")
 STATIC_URL = '/static/'
