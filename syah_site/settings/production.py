@@ -3,10 +3,10 @@ from .base import *
 DEBUG = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-SESSION_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
 X_FRAME_OPTIONS = 'DENY'
 # CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = False
+# CSRF_COOKIE_SECURE = False
 USE_X_FORWARDED_HOST = True
 
 ALLOWED_HOSTS = ['syah-dev.eu-west-1.elasticbeanstalk.com', 'localhost']
