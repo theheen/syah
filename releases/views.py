@@ -8,11 +8,11 @@ from .models import Release
 # Create your views here.
 class ReleaseListView(ListView):
     model = Release
-    ordering = '-release_date'
+    # ordering = '-release_date'
     template_name = 'releases/index.html'
 
     def get_queryset(self):
-        return Release.published.all()
+        return Release.published.order_by('-release_date')
 
     def get_context_data(self, **kwargs):
         context = super(ReleaseListView, self).get_context_data(**kwargs)
