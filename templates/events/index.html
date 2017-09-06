@@ -3,7 +3,7 @@
 {% block title %}{{block.super }} | Events {% endblock title %}
 
 {% block content %}
-  <h1>Events</h1>
+  <h1 class="display-4 mt-3">Events</h1>
   <table class="event-table table">
     <tr>
       <th>Date</th>
@@ -35,7 +35,12 @@
       <tr class="info-collapse collapse" id="info-toggle-{{ event.id }}">
         <!-- <div class="info collapse" id="info-toggle"> -->
           <!-- <div class="well"> -->
-          <td colspan=5 class="well">{{ event.info | linebreaks | urlizetrunc:15 }}</td>
+          <td colspan=5>
+            <div class="card">
+              <div class="card-header">Info</div>
+              <div class="card-body">{{ event.info | linebreaks | urlizetrunc:15 }}</div>
+            </div>
+          </td>
           <!-- </div> -->
         <!-- </div> -->
       </tr>

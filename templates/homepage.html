@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="vertical-center-container">
-  <div class="vertical-center">
+<!-- <div class="vertical-center-container"> -->
+<!--   <div class="vertical-center"> -->
 <!--     <div class="panel-body"> -->
       <!-- <h1>See You At Home</h1> -->
-      <a class="newest-release-cover col-md-6" href="{{ release.get_absolute_url }}"><img class="img-responsive" src="{{ release.cover.url }}"></a>
+<div class="row">
+      <a class="newest-release-cover col-md-6" href="{{ release.get_absolute_url }}"><img class="img-fluid" src="{{ release.cover.url }}"></a>
       <div class="newest-release-info col-md-6 center-block">
         <h1>{{ release.title }}</h1>
         {% if release.is_released %}
@@ -17,13 +18,13 @@
         {% if release.link_set %}
         <ul class="list-inline">
           {% for link in release.link_set.all %}
-            <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+            <li class="list-inline-item"><a href="{{ link.url }}">{{ link.name }}</a></li>
           {% endfor %}
         </ul>
       </div>
       {% endif %}
 
     <!-- </div> -->
-  </div>
+  <!-- </div> -->
 </div>
 {% endblock content %}

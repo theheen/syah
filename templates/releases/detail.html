@@ -3,11 +3,11 @@
 {% block title %}{{ block.super }} | {{ release.title }}{% endblock title %}
 
 {% block content %}
-<h1>{{ release.title }}</h1>
+<h1 class="display-4 mt-3">{{ release.title }}</h1>
 <!-- <img class="cover img-responsive" src="{{ release.cover.url }}" alt="cover"> -->
 <div class="row">
   <div class="col-md-6">
-    <img class="cover img-responsive" src="{{ release.cover.url }}" alt="cover">
+    <img class="cover img-fluid" src="{{ release.cover.url }}" alt="cover">
     {% if release.tagline %}
       <p><em>{{ release.tagline }} </em></p>
     {% endif %}
@@ -21,7 +21,7 @@
     {% if release.link_set %}
       <ul class="list-inline">
         {% for link in release.link_set.all %}
-          <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+          <li class="list-inline-item"><a href="{{ link.url }}">{{ link.name }}</a></li>
         {% endfor %}
       </ul>
     {% endif %}

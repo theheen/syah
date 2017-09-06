@@ -5,43 +5,43 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'syah.css' %}">
     <title>{% block title %}See You At Home{% endblock title %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#syah-nav-links">
-            <!-- <span class="sr-only">Toggle navigation</span> -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{% url 'homepage' %}">See You At Home</a>
-        </div>
-        <div class="collapse navbar-collapse" id="syah-nav-links">
-          <ul class="nav navbar-nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <div class="container-fluid"> -->
+        <a class="navbar-brand" href="{% url 'homepage' %}">See You At Home</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#syah-nav-items" aria-controls="syah-nav-items">
+          <!-- <span class="sr-only">Toggle navigation</span> -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="syah-nav-items">
+          <ul class="navbar-nav mr-auto">
             {% block navlinks %}
-              <li {% if releases_active %}class="active"{% endif %}>
-                <a href="{% url 'releases:index' %}">Releases</a></li>
-              <li {% if events_active %}class="active"{% endif %}>
-                <a href="{% url 'events:index' %}">Events</a></li>
-              <li {% if blog_active %}class="active"{% endif %}>
-                <a href="{% url 'blog:index' %}">Blog</a></li>
+              <li class="nav-item{% if releases_active %} active{% endif %}">
+                <a class="nav-link" href="{% url 'releases:index' %}">Releases</a></li>
+              <li class="nav-item{% if events_active %} active{% endif %}">
+                <a class="nav-link" href="{% url 'events:index' %}">Events</a></li>
+              <li class="nav-item{% if blog_active %} active{% endif %}">
+                <a class="nav-link" href="{% url 'blog:index' %}">Blog</a></li>
             {% endblock navlinks %}
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://twitter.com/seeyouuathome"><i class="fa fa-twitter fa-lg" alt="Twitter"></i></a></li>
-            <li><a href="https://instagram.com/seeyouuathome"><i class="fa fa-instagram fa-lg" alt="Instagram"></i></a></li>
-            <li><a href="https://seeyouathome.bandcamp.com/"><i class="fa fa-bandcamp fa-lg" alt="Bandcamp"></i></a></li>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="https://twitter.com/seeyouuathome"><i class="nav-link fa fa-twitter fa-lg" alt="Twitter"></i></a></li>
+            <li class="nav-item"><a href="https://instagram.com/seeyouuathome"><i class="nav-link fa fa-instagram fa-lg" alt="Instagram"></i></a></li>
+            <li class="nav-item"><a href="https://seeyouathome.bandcamp.com/"><i class="nav-link fa fa-bandcamp fa-lg" alt="Bandcamp"></i></a></li>
           </ul>
         </div>
-      </div>
+      <!-- </div> -->
     </nav>
     <div class="container">
       {% block content %}
