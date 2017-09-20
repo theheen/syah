@@ -7,7 +7,10 @@
 <!-- <img class="cover img-responsive" src="{{ release.cover.url }}" alt="cover"> -->
 <div class="row">
   <div class="col-md-6">
-    <img class="cover img-fluid" src="{{ release.cover.url }}" alt="cover">
+    <a href="{{ release.cover.url }}">
+      <img class="cover img-fluid" srcset="{{ release.cover_thumb_550.url }},
+                                           {{ release.cover.url }} 2x"
+      src="{{ release.cover_thumb_550.url }}" alt="cover"></a>
     {% if release.tagline %}
       <p><em>{{ release.tagline }} </em></p>
     {% endif %}

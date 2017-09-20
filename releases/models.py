@@ -4,6 +4,8 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.core.urlresolvers import reverse
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFit
 
 from core.behaviours import PublishedManager
 
@@ -11,7 +13,6 @@ from core.behaviours import PublishedManager
 
 
 class Release(models.Model):
-    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     ALBUM = 'LP'
     EP = 'EP'
     SINGLE = 'SN'
@@ -34,6 +35,10 @@ class Release(models.Model):
     tagline = models.CharField(max_length=200, default='', blank=True)
     info = models.TextField(default='', blank=True)
     cover = models.ImageField(upload_to='covers', default='missing.png')
+    cover_thumb_300 = ImageSpecField(
+        source='cover', processors=[ResizeToFit(300, 300)])
+    cover_thumb_550 = ImageSpecField(
+        source='cover', processors=[ResizeToFit(550, 550)])
 
     objects = models.Manager()
     published = PublishedManager()

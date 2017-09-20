@@ -6,10 +6,10 @@
 <h1 class="display-4 mt-3">Releases</h1>
 <div class="row">
 {% for rel in release_list %}
-  <div class="col-sm-6 col-md-4">
+  <div class="col-6 col-md-4">
     <div class="card">
       <a href="{{ rel.get_absolute_url }}">
-        <img class="card-img-top" src="{{ rel.cover.url }}">
+        <img class="card-img-top" src="{{ rel.cover_thumb_300.url }}">
       </a>
       <div class="card-body">
         <h3 class="card-title"><a href="{{ rel.get_absolute_url }}">{{ rel.title }}</a></h3>
