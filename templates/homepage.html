@@ -6,7 +6,12 @@
 <!--     <div class="panel-body"> -->
       <!-- <h1>See You At Home</h1> -->
 <div class="row">
-      <a class="newest-release-cover col-md-6" href="{{ release.get_absolute_url }}"><img class="img-fluid" src="{{ release.cover.url }}"></a>
+      <a class="newest-release-cover col-md-6"
+         href="{{ release.get_absolute_url }}">
+        <img class="img-fluid" srcset="{{ release.cover_thumb_550.url }},
+                                       {{ release.cover.url }} 2x"
+                                  src="{{ release.cover.url }}">
+      </a>
       <div class="newest-release-info col-md-6 center-block">
         <h1>{{ release.title }}</h1>
         {% if release.is_released %}
@@ -18,7 +23,9 @@
         {% if release.link_set %}
         <ul class="list-inline">
           {% for link in release.link_set.all %}
-            <li class="list-inline-item"><a href="{{ link.url }}">{{ link.name }}</a></li>
+            <li class="list-inline-item">
+              <a href="{{ link.url }}">{{ link.name }}</a>
+            </li>
           {% endfor %}
         </ul>
       </div>
