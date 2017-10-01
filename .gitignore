@@ -2,6 +2,7 @@ __pycache__/
 .coverage
 *.pyc
 media/covers/*
+media/CACHE
 !media/covers/missing.png
 
 # Elastic Beanstalk Files
