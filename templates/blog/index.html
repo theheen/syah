@@ -3,11 +3,10 @@
 {% block title %}{{ block.super }} | Blog{% endblock title %}
 
 {% block content %}
-  <h1 class="display-4 mt-3">Blog</h1>
+  <h1 class="display-4">Blog</h1>
   <ul class="list-unstyled">
-  <!-- <ul> -->
-  {% for post in blog_list %}
-  <li><h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> - <small class="text-muted">{{ post.pub_datetime | date:"Y-m-d"}}</small></h4></li>
-  {% endfor %}
+    {% for post in blog_list %}
+      <li><h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> - <small class="text-muted">{{ post.pub_datetime | date:"Y-m-d"}}</small></h4></li>
+    {% endfor %}
   </ul>
 {% endblock content %}

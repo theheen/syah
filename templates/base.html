@@ -13,27 +13,31 @@
     <title>{% block title %}See You At Home{% endblock title %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'homepage' %}">See You At Home</a>
-      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#syah-nav-items" aria-controls="syah-nav-items">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="syah-nav-items">
-        <ul class="navbar-nav mr-auto">
-          {% block navlinks %}
-          <li class="nav-item{% if releases_active %} active{% endif %}">
-            <a class="nav-link" href="{% url 'releases:index' %}">Releases</a></li>
-          <li class="nav-item{% if events_active %} active{% endif %}">
-            <a class="nav-link" href="{% url 'events:index' %}">Events</a></li>
-          <li class="nav-item{% if blog_active %} active{% endif %}">
-            <a class="nav-link" href="{% url 'blog:index' %}">Blog</a></li>
-          {% endblock navlinks %}
-        </ul>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a href="https://twitter.com/seeyouuathome"><i class="nav-link fa fa-twitter fa-lg" alt="Twitter"></i></a></li>
-          <li class="nav-item"><a href="https://instagram.com/seeyouuathome"><i class="nav-link fa fa-instagram fa-lg" alt="Instagram"></i></a></li>
-          <li class="nav-item"><a href="https://seeyouathome.bandcamp.com/"><i class="nav-link fa fa-bandcamp fa-lg" alt="Bandcamp"></i></a></li>
-        </ul>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'homepage' %}">See You At Home</a>
+        <button type="button" class="navbar-toggler"
+                data-toggle="collapse" data-target="#syah-nav-items"
+                aria-controls="syah-nav-items">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="syah-nav-items">
+          <ul class="navbar-nav mr-auto">
+            {% block navlinks %}
+            <li class="nav-item{% if releases_active %} active{% endif %}">
+              <a class="nav-link" href="{% url 'releases:index' %}">Releases</a></li>
+            <li class="nav-item{% if events_active %} active{% endif %}">
+              <a class="nav-link" href="{% url 'events:index' %}">Events</a></li>
+            <li class="nav-item{% if blog_active %} active{% endif %}">
+              <a class="nav-link" href="{% url 'blog:index' %}">Blog</a></li>
+            {% endblock navlinks %}
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="https://twitter.com/seeyouuathome"><i class="nav-link fa fa-twitter fa-lg" alt="Twitter"></i></a></li>
+            <li class="nav-item"><a href="https://instagram.com/seeyouuathome"><i class="nav-link fa fa-instagram fa-lg" alt="Instagram"></i></a></li>
+            <li class="nav-item"><a href="https://seeyouathome.bandcamp.com/"><i class="nav-link fa fa-bandcamp fa-lg" alt="Bandcamp"></i></a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="container">
