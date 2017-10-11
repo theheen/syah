@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^releases/', include('releases.urls')),
     url(r'^events/', include('events.urls')),
     url(r'^blog/', include('blog.urls')),
+    url(r'^api/', include('core.api_urls', namespace='api')),
     url(r'^$', HomepageView.as_view(), name='homepage'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

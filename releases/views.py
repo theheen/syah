@@ -1,11 +1,8 @@
 from django.views.generic import ListView, DetailView
 
-# from braces.views import CanonicalSlugDetailMixin
-
 from .models import Release
 
 
-# Create your views here.
 class ReleaseListView(ListView):
     model = Release
     # ordering = '-release_date'
@@ -20,7 +17,6 @@ class ReleaseListView(ListView):
         return context
 
 
-# class ReleaseDetailView(CanonicalSlugDetailMixin, DetailView):
 class ReleaseDetailView(DetailView):
     model = Release
     template_name = 'releases/detail.html'

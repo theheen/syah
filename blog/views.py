@@ -1,7 +1,5 @@
 from django.views.generic import ListView, DetailView
 
-# from braces.views import CanonicalSlugDetailMixin
-
 from .models import Blog
 
 
