@@ -34,3 +34,15 @@ class HomepageViewTest(TestCase):
     def test_homepage_contains_release(self):
         response = self.client.get(reverse('homepage'))
         self.assertContains(response, "OK Computer")
+
+
+class CoreBehavioursTest(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        Release.objects.create(
+            release_type='LP', title="OK Computer", slug='ok-computer')
+        Release.objects.create(
+            release_type='EP',
+            title="Kid A",
+            slug="kid-a",
+            pub_datetime=(timezone.now() + datetime.timedelta(hours=1)))

@@ -66,3 +66,23 @@ class EventViewTest(TestCase):
         self.assertContains(response, "today")
         self.assertContains(response, "tomorrow")
         self.assertNotContains(response, "yesterday")
+
+
+class EventAPITest(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        wembley = Venue.objects.create(
+            name="Wembley Stadium", location="London, UK")
+        Event.objects.create(
+            venue=wembley, date=datetime.date.today(), info="today")
+        Event.objects.create(
+            venue=wembley,
+            date=datetime.date.today() - datetime.timedelta(days=1),
+            info="yesterday")
+
+    def test_list(self):
+        response = self.client.get(
+                reverse('api:events'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "today")
+        self.assertNotContains(response, "yesterday")
