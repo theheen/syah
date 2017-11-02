@@ -34,7 +34,7 @@ class Release(models.Model):
     slug = models.SlugField(unique=True)
     tagline = models.CharField(max_length=200, default='', blank=True)
     info = models.TextField(default='', blank=True)
-    cover = models.ImageField(upload_to='covers', default='missing.png')
+    cover = models.ImageField(upload_to='covers', default='missing.gif')
     cover_thumb_300 = ImageSpecField(
         source='cover', processors=[ResizeToFit(300, 300)])
     cover_thumb_550 = ImageSpecField(
