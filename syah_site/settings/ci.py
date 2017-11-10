@@ -8,3 +8,5 @@ DATABASES = {
         'PASSWORD': '',
     }
 }
+
+USE_DEBUG_TOOLBAR = False
