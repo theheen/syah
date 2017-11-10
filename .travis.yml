@@ -11,4 +11,5 @@ env:
                 - SECRET_KEY="+&iy5xo9dad)e@1nmoxxn%ntdmo)krer#e5no50@74q62kwcrv"
                 - DJANGO_SETTINGS_MODULE=syah_site.settings.ci
 script:
-        - python manage.py test
+        - coverage run --omit='manage.py' --source='.' manage.py test
+        - coveralls
