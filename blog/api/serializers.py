@@ -8,7 +8,7 @@ class BlogSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Blog
-        fields = ('url', 'title', 'text', 'pub_datetime')
+        fields = ('url', 'slug', 'title', 'text', 'pub_datetime')
         extra_kwargs = {
             'url': {
                 'view_name': 'api:blog-detail',

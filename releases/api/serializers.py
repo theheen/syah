@@ -14,8 +14,8 @@ class ReleaseSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = Release
-        fields = ('url', 'title', 'release_date', 'tracks', 'tagline', 'info',
-                  'release_type', 'cover')
+        fields = ('url', 'slug', 'title', 'release_date', 'tracks', 'tagline',
+                  'info', 'release_type', 'cover')
         extra_kwargs = {
             'url': {
                 'view_name': 'api:release-detail',
